@@ -1,0 +1,6 @@
+@devbr.entrevista.api_HostAddress = http://localhost:5036
+
+GET {{devbr.entrevista.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
