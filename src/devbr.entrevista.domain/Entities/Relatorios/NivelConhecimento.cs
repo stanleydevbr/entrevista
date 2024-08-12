@@ -6,6 +6,8 @@ namespace devbr.entrevista.domain.entities.relatorios
     {
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
+
+        public List<Resposta> Respostas { get; set; }
         public override bool EhValido()
         {
             throw new NotImplementedException();

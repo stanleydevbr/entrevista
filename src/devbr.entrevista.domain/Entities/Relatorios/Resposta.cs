@@ -6,6 +6,7 @@ namespace devbr.entrevista.domain.entities.relatorios
     {
         public string Pergunta { get; set; }
         public string RespostaCandidato { get; set; }
+        public string RespostaEsperada { get; set; }
         public int CodigoGrupoPergunta { get; set; }
         public string DescricaoGrupoPergunta { get; set; }
         public NivelConhecimento NivelConhecimento { get; set; }

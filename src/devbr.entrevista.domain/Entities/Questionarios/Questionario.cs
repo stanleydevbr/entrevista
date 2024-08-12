@@ -1,3 +1,6 @@
+
+﻿using DevBr.Core.Dominio.Entidades;
+using FluentValidation;
 ﻿using devbr.entrevista.domain.entities.relatorios;
 using DevBr.Core.Dominio.Entidades;
 
@@ -13,7 +16,24 @@ namespace devbr.entrevista.domain.entities.questionarios
 
         public override bool EhValido()
         {
-            throw new NotImplementedException();
+            RuleFor(e => e.Nome)
+                .NotEmpty()
+                .WithMessage("O nome é obrigatório")
+                .MaximumLength(45)
+                .WithMessage("A descrição precisa conter até 45 caracteres");
+
+            RuleFor(e => e.Descricao)
+                .NotEmpty()
+                .WithMessage("A descrição é obrigatória")
+                .MaximumLength(250)
+                .WithMessage("A descrição precisa conter até 250 caracteres");
+
+            RuleFor(e => e.Status)
+                .NotNull()
+                .WithMessage("O status é obrigatório");
+
+            ValidationResult = Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }
