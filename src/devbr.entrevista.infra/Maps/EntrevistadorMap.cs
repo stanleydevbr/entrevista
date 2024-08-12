@@ -17,23 +17,45 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.HasKey(e => e.Id);
 
+            builder.Property(e => e.Codigo)
+                .IsRequired()
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaEntrevistador");                
+
             builder.Property(e => e.Nome)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(80); 
 
             builder.Property(e => e.Cliente)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(100); 
 
             builder.Property(e => e.Familia)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(30); 
 
             builder.Property(e => e.Nivel)
                 .IsRequired()
-                .HasMaxLength(100); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(3); 
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(c => c.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataCriacao)
+                .IsRequired();
+
+            builder.Property(c => c.UsuarioAlteracao)
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataAlteracao);
+
+            builder.HasMany(e => e.Linguagens)
+                     .WithMany(l => l.Entrevistadores)
+                     .UsingEntity<Dictionary<string, object>>(
+                         "EntrevistadorLinguagem",
+                         j => j.HasOne<Linguagem>().WithMany().HasForeignKey("LinguagemId"),
+                         j => j.HasOne<Entrevistador>().WithMany().HasForeignKey("EntrevistadorId")
+                     );
         }
     }
 }

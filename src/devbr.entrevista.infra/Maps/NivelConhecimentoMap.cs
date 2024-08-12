@@ -1,11 +1,6 @@
 ﻿using devbr.entrevista.domain.entities.relatorios;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevBr.Entrevista.Infra.Maps
 {
@@ -17,15 +12,29 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.HasKey(nc => nc.Id);
 
+            builder.Property(nc => nc.Codigo)
+                .IsRequired()
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaNiveisConhecimento");
+
             builder.Property(nc => nc.Descricao)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(45); 
 
             builder.Property(nc => nc.Valor)
                 .IsRequired()
-                .HasColumnType("decimal(18,2)"); // Ajuste o tipo conforme necessário
+                .HasColumnType("decimal(18,2)"); 
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(c => c.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataCriacao)
+                .IsRequired();
+
+            builder.Property(c => c.UsuarioAlteracao)
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataAlteracao);
         }
     }
 }

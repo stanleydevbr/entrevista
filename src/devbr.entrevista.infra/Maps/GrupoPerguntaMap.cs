@@ -8,15 +8,35 @@ namespace DevBr.Entrevista.Infra.Maps
     {
         public void Configure(EntityTypeBuilder<GrupoPergunta> builder)
         {
-            builder.ToTable("GruposPerguntas");
+            builder.ToTable("GrupoPergunta");
 
             builder.HasKey(gp => gp.Id);
 
-            builder.Property(gp => gp.Descricao)
+            builder.Property(gp => gp.Codigo)
                 .IsRequired()
-                .HasMaxLength(500); // Ajuste o tamanho conforme necessário
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaGrupoPergunta");        
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(gp => gp.Descricao)
+                   .IsRequired()
+                   .HasMaxLength(255);
+
+            builder.HasMany(gp => gp.Perguntas)
+                   .WithOne()
+                   .HasForeignKey("GrupoPerguntaId")
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(c => c.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataCriacao)
+                .IsRequired();
+
+            builder.Property(c => c.UsuarioAlteracao)
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataAlteracao);
+
         }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using devbr.entrevista.domain.entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevBr.Entrevista.Infra.Maps
 {
@@ -19,9 +14,23 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(c => c.Nome)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(80); 
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(c => c.Codigo)
+                .IsRequired()
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaCandidato");
+
+            builder.Property(c=> c.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataCriacao)
+                .IsRequired();
+
+            builder.Property(c => c.UsuarioAlteracao)
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataAlteracao);
         }
     }
 }

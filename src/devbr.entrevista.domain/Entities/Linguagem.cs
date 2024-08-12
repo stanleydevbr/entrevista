@@ -6,9 +6,20 @@ namespace devbr.entrevista.domain.entities
     public class Linguagem : Entity<Linguagem>
     {
         public string Descricao { get; set; }
+
+        public List<Entrevistador> Entrevistadores { get; set; }
+
         public override bool EhValido()
         {
-            throw new NotImplementedException();
+            RuleFor(x => x.Descricao)
+                .NotEmpty()
+                .WithMessage("A descrição da linguagem e obrigatória.")
+                .MaximumLength(45)
+                .WithMessage("O tamanho máximo da descrição e de 45 caracteres.");
+
+            ValidationResult = Validate(this);
+            
+            return ValidationResult.IsValid;
         }
     }
 }

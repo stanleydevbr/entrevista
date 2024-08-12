@@ -7,7 +7,7 @@ namespace devbr.entrevista.domain.entities.questionarios
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public bool Status { get; set; }
-        public List<Pergunta> Perguntas { get; set; }
+        public ICollection<Pergunta> Perguntas { get; set; }
 
         public override bool EhValido()
         {

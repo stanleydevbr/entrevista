@@ -1,11 +1,6 @@
 ﻿using devbr.entrevista.domain.entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevBr.Entrevista.Infra.Maps
 {
@@ -17,11 +12,25 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.HasKey(l => l.Id);
 
+            builder.Property(l => l.Codigo)
+                .IsRequired()
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaLinguagem");
+
             builder.Property(l => l.Descricao)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(45); 
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(c => c.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataCriacao)
+                .IsRequired();
+
+            builder.Property(c => c.UsuarioAlteracao)
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataAlteracao);
         }
     }
 }
