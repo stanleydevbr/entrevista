@@ -1,6 +1,6 @@
 ﻿namespace DevBr.Entrevista.Domain.Interfaces.Services
 {
-    public interface IRelatorioService: IDisposable
+    public interface IRelatorioService : IDisposable
     {
     }
 }

@@ -1,11 +1,6 @@
 ﻿using devbr.entrevista.domain.entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevBr.Entrevista.Infra.Maps
 {
@@ -19,23 +14,23 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(e => e.Codigo)
                 .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaEntrevistador");                
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaEntrevistador");
 
             builder.Property(e => e.Nome)
                 .IsRequired()
-                .HasMaxLength(80); 
+                .HasMaxLength(80);
 
             builder.Property(e => e.Cliente)
                 .IsRequired()
-                .HasMaxLength(100); 
+                .HasMaxLength(100);
 
             builder.Property(e => e.Familia)
                 .IsRequired()
-                .HasMaxLength(30); 
+                .HasMaxLength(30);
 
             builder.Property(e => e.Nivel)
                 .IsRequired()
-                .HasMaxLength(3); 
+                .HasMaxLength(3);
 
             builder.Property(c => c.UsuarioCriacao)
                 .IsRequired()

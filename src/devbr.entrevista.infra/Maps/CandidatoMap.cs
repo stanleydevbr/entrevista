@@ -12,15 +12,15 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.Nome)
-                .IsRequired()
-                .HasMaxLength(80); 
-
             builder.Property(c => c.Codigo)
                 .IsRequired()
                 .HasComputedColumnSql("NEXT VALUE FOR SequenciaCandidato");
 
-            builder.Property(c=> c.UsuarioCriacao)
+            builder.Property(c => c.Nome)
+                .IsRequired()
+                .HasMaxLength(80);
+
+            builder.Property(c => c.UsuarioCriacao)
                 .IsRequired()
                 .HasMaxLength(10);
 

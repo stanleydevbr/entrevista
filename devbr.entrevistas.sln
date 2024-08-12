@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Api", "src\devbr.entrevista.api\DevBr.Entrevista.Api.csproj", "{1C845610-1E3C-4BD2-886C-11D2E2E9DBA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Api", "src\devbr.entrevista.api\DevBr.Entrevista.Api.csproj", "{1C845610-1E3C-4BD2-886C-11D2E2E9DBA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Application", "src\devbr.entrevista.application\DevBr.Entrevista.Application.csproj", "{382E1148-00AB-4BA6-ADA7-4883D34CC850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Application", "src\devbr.entrevista.application\DevBr.Entrevista.Application.csproj", "{382E1148-00AB-4BA6-ADA7-4883D34CC850}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Domain", "src\devbr.entrevista.domain\DevBr.Entrevista.Domain.csproj", "{62488683-FF66-43CB-8442-4D701B1D0213}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Domain", "src\devbr.entrevista.domain\DevBr.Entrevista.Domain.csproj", "{62488683-FF66-43CB-8442-4D701B1D0213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Infra", "src\devbr.entrevista.infra\DevBr.Entrevista.Infra.csproj", "{CFB329D3-2371-4E7E-AD06-9D002A42D5B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Infra", "src\devbr.entrevista.infra\DevBr.Entrevista.Infra.csproj", "{CFB329D3-2371-4E7E-AD06-9D002A42D5B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{39715EE5-2EE8-492F-BF9F-EFF42756D89F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EAD17266-7328-4A17-8330-4931F91CEA6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Api.Test", "tests\devbr.entrevista.api.test\DevBr.Entrevista.Api.Test.csproj", "{28012D10-050F-4133-B8DE-80E6B60A76DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Api.Test", "tests\devbr.entrevista.api.test\DevBr.Entrevista.Api.Test.csproj", "{28012D10-050F-4133-B8DE-80E6B60A76DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Application.Test", "tests\devbr.entrevista.application.test\DevBr.Entrevista.Application.Test.csproj", "{2D207BA2-D113-4E86-B03D-EE9C064C3F44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Application.Test", "tests\devbr.entrevista.application.test\DevBr.Entrevista.Application.Test.csproj", "{2D207BA2-D113-4E86-B03D-EE9C064C3F44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Domain.Test", "tests\devbr.entrevista.domain.test\DevBr.Entrevista.Domain.Test.csproj", "{03F0F2C2-AF2A-4425-9798-1066DD52AD3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Domain.Test", "tests\devbr.entrevista.domain.test\DevBr.Entrevista.Domain.Test.csproj", "{03F0F2C2-AF2A-4425-9798-1066DD52AD3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevBr.Entrevista.Infra.Test", "tests\devbr.entrevista.infra.test\DevBr.Entrevista.Infra.Test.csproj", "{76834059-B23A-4383-BFD9-9C8E4E15407D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevBr.Entrevista.Infra.Test", "tests\devbr.entrevista.infra.test\DevBr.Entrevista.Infra.Test.csproj", "{76834059-B23A-4383-BFD9-9C8E4E15407D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{42E1C62E-49AF-473E-8449-23D80ACB8370}"
 EndProject

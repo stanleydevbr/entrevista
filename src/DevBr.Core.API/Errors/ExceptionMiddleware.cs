@@ -33,7 +33,7 @@ namespace DevBr.Core.API.Errors
             return context.Response.WriteAsync(new ErrorDetails()
             {
                 StatusCode = context.Response.StatusCode,
-                Message = $"Ops, nosso servidor encontrou um problema! Tente novamente ou entre em contato com o suporte. { erro }."
+                Message = $"Ops, nosso servidor encontrou um problema! Tente novamente ou entre em contato com o suporte. {erro}."
             }.ToString());
         }
     }
