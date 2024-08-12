@@ -3,7 +3,7 @@ using DevBr.Core.Dominio.Interfaces;
 
 namespace DevBr.Entrevista.Domain.Interfaces.Repositories
 {
-    public interface IEntrevistadorRepository: IRepositoryCore<Entrevistador>
+    public interface IEntrevistadorRepository : IRepositoryCore<Entrevistador>
     {
     }
 }

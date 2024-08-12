@@ -12,18 +12,38 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.HasKey(q => q.Id);
 
+            builder.Property(q => q.Codigo)
+                .IsRequired()
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaQuestionario")
+
             builder.Property(q => q.Nome)
                 .IsRequired()
-                .HasMaxLength(200); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(45);
 
             builder.Property(q => q.Descricao)
                 .IsRequired()
-                .HasMaxLength(1000); // Ajuste o tamanho conforme necessário
+                .HasMaxLength(250);
 
             builder.Property(q => q.Status)
                 .IsRequired();
 
-            // Adicione outras configurações conforme necessário
+            builder.Property(c => c.UsuarioCriacao)
+                .IsRequired()
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataCriacao)
+                .IsRequired();
+
+            builder.Property(c => c.UsuarioAlteracao)
+                .HasMaxLength(10);
+
+            builder.Property(c => c.DataAlteracao);
+
+
+            builder.HasMany(q => q.Perguntas)
+                   .WithMany(p => p.Questionarios)
+                   .UsingEntity(j => j.ToTable("PerguntaQuestionario"));
+
         }
     }
 }

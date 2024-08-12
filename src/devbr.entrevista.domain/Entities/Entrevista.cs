@@ -1,4 +1,5 @@
-﻿using DevBr.Core.Dominio.Entidades;
+﻿using devbr.entrevista.domain.entities.relatorios;
+using DevBr.Core.Dominio.Entidades;
 using FluentValidation;
 
 namespace devbr.entrevista.domain.entities
@@ -10,6 +11,8 @@ namespace devbr.entrevista.domain.entities
         public Guid CandidatoId { get; set; }
         public Candidato Candidato { get; set; }
         public List<Entrevistador> Entrevistadores { get; set; }
+        public List<Relatorio> Relatorios { get; set; }
+        public Guid RelatorioId { get; set; }
 
         public override bool EhValido()
         {
