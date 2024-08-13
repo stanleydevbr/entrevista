@@ -1,6 +1,8 @@
-﻿namespace DevBr.Entrevista.Application.ViewsModels.Entrevistas
+﻿using DevBr.Core.Dominio.ViewModels;
+
+namespace DevBr.Entrevista.Application.ViewsModels.Entrevistas
 {
-    public class RelatorioViewModel
+    public class RelatorioViewModel: ViewModelCore
     {
         public Guid Id { get; set; }
         public string Descricao { get; set; }
