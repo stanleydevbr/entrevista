@@ -14,4 +14,8 @@
     <Folder Include="Configurations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\devbr.entrevista.application\DevBr.Entrevista.Application.csproj" />
+  </ItemGroup>
+
 </Project>
