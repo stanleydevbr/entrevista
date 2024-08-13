@@ -1,6 +1,8 @@
-﻿namespace DevBr.Entrevista.Application.ViewsModels.Questionarios
+﻿using DevBr.Core.Dominio.ViewModels;
+
+namespace DevBr.Entrevista.Application.ViewsModels.Questionarios
 {
-    public class GrupoViewModel
+    public class GrupoViewModel: ViewModelCore
     {
         public Guid Id { get; set; }
         public string Descricao { get; set; }

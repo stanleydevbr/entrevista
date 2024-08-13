@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevBr.Core\DevBr.Core.csproj" />
+    <ProjectReference Include="..\devbr.entrevista.domain\DevBr.Entrevista.Domain.csproj" />
+    <ProjectReference Include="..\devbr.entrevista.infra\DevBr.Entrevista.Infra.csproj" />
   </ItemGroup>
 
 </Project>

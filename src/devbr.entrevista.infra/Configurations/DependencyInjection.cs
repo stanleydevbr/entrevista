@@ -6,7 +6,7 @@ namespace DevBr.Entrevista.Infra.Configurations
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection InfraRegister(this IServiceCollection services)
+        public static IServiceCollection RegisterInfra(this IServiceCollection services)
         {
             services.AddTransient<ICandidatoRepository, CandidatoRepository>();
 

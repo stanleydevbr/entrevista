@@ -1,6 +1,8 @@
-﻿namespace DevBr.Entrevista.Application.ViewsModels.Entrevistas
+﻿using DevBr.Core.Dominio.ViewModels;
+
+namespace DevBr.Entrevista.Application.ViewsModels.Entrevistas
 {
-    public class EntrevistaViewModel
+    public class EntrevistaViewModel: ViewModelCore
     {
         public Guid Id { get; set; }
         public CandidatoViewModel Candidato { get; set; }
