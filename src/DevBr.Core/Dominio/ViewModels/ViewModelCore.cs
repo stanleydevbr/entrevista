@@ -2,7 +2,7 @@
 
 namespace DevBr.Core.Dominio.ViewModels
 {
-    public class ViewModelCore : BaseViewModel
+    public abstract class ViewModelCore : BaseViewModel
     {
         public Guid Id { get; set; }
         public long Codigo { get; set; }
