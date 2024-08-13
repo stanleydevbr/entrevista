@@ -13,7 +13,7 @@
 * Construção dos controler
 * Configuração da API
 * Desenvolver os Testes Unitários
-* Teste Funcional utilizando Insominia/Postman
+* Teste Funcional utilizando Insomnia/Postman
 * Prototipo de telas do Front-End
 
 

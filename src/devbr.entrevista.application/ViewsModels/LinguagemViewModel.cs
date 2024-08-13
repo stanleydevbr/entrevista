@@ -2,8 +2,8 @@
 
 namespace DevBr.Entrevista.Application.ViewsModels
 {
-    public class CandidatoViewModel : ViewModelCore
+    public class  LinguagemViewModel: ViewModelCore
     {
-        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }
