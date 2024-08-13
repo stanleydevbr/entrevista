@@ -18,7 +18,7 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(l => l.Descricao)
                 .IsRequired()
-                .HasMaxLength(45); 
+                .HasMaxLength(45);
 
             builder.Property(c => c.UsuarioCriacao)
                 .IsRequired()

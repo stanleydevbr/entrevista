@@ -18,11 +18,11 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(nc => nc.Descricao)
                 .IsRequired()
-                .HasMaxLength(45); 
+                .HasMaxLength(45);
 
             builder.Property(nc => nc.Valor)
                 .IsRequired()
-                .HasColumnType("decimal(18,2)"); 
+                .HasColumnType("decimal(18,2)");
 
             builder.Property(c => c.UsuarioCriacao)
                 .IsRequired()

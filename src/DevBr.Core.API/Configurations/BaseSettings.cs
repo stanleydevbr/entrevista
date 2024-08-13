@@ -1,6 +1,5 @@
 ﻿
 using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace DevBr.Core.API.Configurations
 {
@@ -16,7 +15,7 @@ namespace DevBr.Core.API.Configurations
         public static T Get<T>(string session)
         {
             var config = Config();
-            T result= config.GetSection(session).Get<T>();
+            T result = config.GetSection(session).Get<T>();
             return (T)result;
         }
 

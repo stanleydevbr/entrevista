@@ -26,7 +26,7 @@ namespace DevBr.Core.API.Configurations
         }
         public void Apply(ApplicationModel application)
         {
-            foreach (var selector in application.Controllers.SelectMany(c=>c.Selectors))
+            foreach (var selector in application.Controllers.SelectMany(c => c.Selectors))
             {
                 if (selector.AttributeRouteModel != null)
                     selector.AttributeRouteModel = AttributeRouteModel.CombineAttributeRouteModel(_routePrefix, selector.AttributeRouteModel);

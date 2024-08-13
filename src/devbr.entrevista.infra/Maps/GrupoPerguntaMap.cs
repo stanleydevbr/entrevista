@@ -8,13 +8,13 @@ namespace DevBr.Entrevista.Infra.Maps
     {
         public void Configure(EntityTypeBuilder<GrupoPergunta> builder)
         {
-            builder.ToTable("GrupoPergunta");
+            builder.ToTable("GrupoPerguntas");
 
             builder.HasKey(gp => gp.Id);
 
             builder.Property(gp => gp.Codigo)
                 .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaGrupoPergunta");        
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaGrupoPergunta");
 
             builder.Property(gp => gp.Descricao)
                    .IsRequired()

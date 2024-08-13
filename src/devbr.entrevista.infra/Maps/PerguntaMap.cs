@@ -8,7 +8,7 @@ namespace DevBr.Entrevista.Infra.Maps
     {
         public void Configure(EntityTypeBuilder<Pergunta> builder)
         {
-            builder.ToTable("Pergunta");
+            builder.ToTable("Perguntas");
 
             builder.HasKey(p => p.Id);
 
@@ -18,7 +18,7 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(p => p.Resposta)
                    .HasColumnType("varchar(max)");
-                   
+
 
             builder.Property(p => p.Status)
                    .IsRequired();

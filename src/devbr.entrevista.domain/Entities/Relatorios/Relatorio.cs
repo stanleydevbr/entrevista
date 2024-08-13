@@ -1,4 +1,5 @@
-﻿using DevBr.Core.Dominio.Entidades;
+﻿using devbr.entrevista.domain.entities.questionarios;
+using DevBr.Core.Dominio.Entidades;
 using FluentValidation;
 
 namespace devbr.entrevista.domain.entities.relatorios
@@ -12,6 +13,8 @@ namespace devbr.entrevista.domain.entities.relatorios
         public string Resultado { get; set; }
         public Entrevista Entrevista { get; set; }
         public Guid EntrevistaId { get; set; }
+        public ICollection<Questionario> Questionarios { get; set; }
+
         public override bool EhValido()
         {
             RuleFor(e => e.Descricao)

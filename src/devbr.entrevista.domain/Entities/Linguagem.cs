@@ -18,7 +18,7 @@ namespace devbr.entrevista.domain.entities
                 .WithMessage("O tamanho máximo da descrição e de 45 caracteres.");
 
             ValidationResult = Validate(this);
-            
+
             return ValidationResult.IsValid;
         }
     }

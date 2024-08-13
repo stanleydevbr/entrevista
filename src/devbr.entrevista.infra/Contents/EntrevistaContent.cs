@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 namespace DevBr.Entrevista.Infra.Contents
 {
 
-    public class EntrevistaDbContent: DbContext
+    public class EntrevistaDbContent : DbContext
     {
-        public EntrevistaDbContent(DbContextOptions<EntrevistaDbContent> options): base(options)
+        public EntrevistaDbContent(DbContextOptions<EntrevistaDbContent> options) : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -14,7 +14,7 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(e => e.Codigo)
                 .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaEntrevista");            
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaEntrevista");
 
             builder.Property(e => e.DataEntrevista)
                 .IsRequired();
