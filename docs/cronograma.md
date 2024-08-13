@@ -5,7 +5,7 @@
 
 ## 13/08/2024
 * Conclusão das validações de dominios, com FluentValidation
-* Adicionar meteodos de Inversão de Controle (IC), Injeção de dependência
+* Adicionar metodos de Inversão de Controle (IC), Injeção de dependência
 * Fazer mapeamento de entidades de visão para entidades de dominio
 * Iniciar serviço de aplicação
 
