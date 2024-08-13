@@ -12,6 +12,11 @@ namespace DevBr.Entrevista.Application.Configurations
         public static IServiceCollection AddServiceApplication(this IServiceCollection services)
         {
             services.AddTransient<ICandidatoAppService, CandidatoAppService>();
+            services.AddTransient<IEntrevistaAppService, EntrevistaAppService>();
+            services.AddTransient<IEntrevistadorService, EntrevistadorService>();
+            services.AddTransient<IGrupoPerguntaService, GrupoPerguntaService>();
+            services.AddTransient<IQuestionarioService,  QuestionarioService>();
+            services.AddTransient<IRelatorioService, RelatorioService>();
 
             return services;
         }
@@ -19,6 +24,11 @@ namespace DevBr.Entrevista.Application.Configurations
         public static IServiceCollection AddServiceDomain(this IServiceCollection services)
         {
             services.AddTransient<ICandidatoService, CandidatoService>();
+            services.AddTransient<IEntrevistaService, EntrevistaService>();
+            services.AddTransient<IEntrevistadorService, EntrevistadorService>();
+            services.AddTransient<IGrupoPerguntaService, GrupoPerguntaService>();
+            services.AddTransient<IQuestionarioService, QuestionarioService>();
+            services.AddTransient<IRelatorioService, RelatorioService>();
 
             return services;
         }
