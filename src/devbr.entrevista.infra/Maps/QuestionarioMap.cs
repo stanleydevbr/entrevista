@@ -14,7 +14,7 @@ namespace DevBr.Entrevista.Infra.Maps
 
             builder.Property(q => q.Codigo)
                 .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaQuestionario")
+                .HasComputedColumnSql("NEXT VALUE FOR SequenciaQuestionario");
 
             builder.Property(q => q.Nome)
                 .IsRequired()
