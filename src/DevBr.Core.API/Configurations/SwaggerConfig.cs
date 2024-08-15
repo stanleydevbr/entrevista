@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -81,30 +80,21 @@ namespace DevBr.Core.API.Configurations
             IApiVersionDescriptionProvider provider,
             string applicationPrefixRoute)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
 
-            app.UseMvc()
-                .UseApiVersioning()
-                .UseMvcWithDefaultRoute();
+            //app.UseSwagger(options =>
+            //{
+            //    options.RouteTemplate = $"{applicationPrefixRoute}/swagger/{{documentName}}/swagger.json";
+            //});
 
-            app.UseSwagger(options =>
-            {
-                options.RouteTemplate = $"{applicationPrefixRoute}/swagger/{{documentName}}/swagger.json";
-            });
+            app.UseSwagger();
+
             app.UseDefaultFiles();
             app.UseSwaggerUI(options =>
             {
-                options.RoutePrefix = $"{applicationPrefixRoute}/swagger";
+                //options.RoutePrefix = $"{applicationPrefixRoute}/swagger";
                 foreach (var description in provider.ApiVersionDescriptions)
                 {
-                    options.SwaggerEndpoint($"{applicationPrefixRoute}/swagger/{description.GroupName}/swagger.json", description?.GroupName?.ToLowerInvariant());
+                    options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description?.GroupName?.ToLowerInvariant());
                 }
                 options.DocExpansion(DocExpansion.List);
             });

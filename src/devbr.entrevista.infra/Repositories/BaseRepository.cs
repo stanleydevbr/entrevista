@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 
 namespace DevBr.Entrevista.Infra.Repositories
 {
-    public class BaseRepository<TEntity> : IRepositoryCore<TEntity> where TEntity : Entity<TEntity>
+    public class RepositoryCore<TEntity> : IRepositoryCore<TEntity> where TEntity : Entity<TEntity>
     {
         protected EntrevistaDbContent Db;
         protected DbSet<TEntity> dbSet;
-        public BaseRepository(EntrevistaDbContent context)
+        public RepositoryCore(EntrevistaDbContent context)
         {
             Db = context;
             dbSet = Db.Set<TEntity>();

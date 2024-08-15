@@ -1,11 +1,12 @@
 ﻿using DevBr.Entrevista.Application.Interfaces.Applications;
-using DevBr.Entrevista.Application.ViewsModels;
 using DevBr.Entrevista.Application.ViewsModels.Entrevistas;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevBr.Entrevista.Api.Controllers
 {
-    public class EntrevistaController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class EntrevistaController : ControllerBase
     {
         
         private readonly IEntrevistaAppService _service;
@@ -20,7 +21,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Adicionar(viewModel);
 
-            return View(result);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -28,7 +29,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Consultar(Id);
 
-            return View(result);
+            return Ok(result);
         }
 
         [HttpPut]
@@ -36,7 +37,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Editar(viewModel);
 
-            return View(result);
+            return Ok(result);
         }
 
         [HttpDelete]
@@ -45,12 +46,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Excluir(Id);
 
-            return View(result);
+            return Ok(result);
         }
-
-
-
-
     }
-}
 }

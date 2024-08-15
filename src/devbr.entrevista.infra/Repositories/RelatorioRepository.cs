@@ -4,7 +4,7 @@ using DevBr.Entrevista.Infra.Contents;
 
 namespace DevBr.Entrevista.Infra.Repositories
 {
-    public class RelatorioRepository : BaseRepository<Relatorio>, IRelatorioRepository
+    public class RelatorioRepository : RepositoryCore<Relatorio>, IRelatorioRepository
     {
         public RelatorioRepository(EntrevistaDbContent context) : base(context)
         {

@@ -1,8 +1,7 @@
 
-﻿using DevBr.Core.Dominio.Entidades;
-using FluentValidation;
-﻿using devbr.entrevista.domain.entities.relatorios;
 using DevBr.Core.Dominio.Entidades;
+using FluentValidation;
+using devbr.entrevista.domain.entities.relatorios;
 
 namespace devbr.entrevista.domain.entities.questionarios
 {

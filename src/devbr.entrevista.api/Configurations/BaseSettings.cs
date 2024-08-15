@@ -1,11 +1,8 @@
-﻿
-using Microsoft.Extensions.Configuration;
-
-namespace DevBr.Core.API.Configurations
+﻿namespace DevBr.Entrevista.Api.Configurations
 {
     public static class BaseSettings
     {
-        private const string APP_SETTINGS = "appsettings.json";
+        private const string APP_SETTINGS = "appSettings.json";
         public static T Get<T>(this IConfiguration config, string session)
         {
             T result = config.GetSection(session).Get<T>();

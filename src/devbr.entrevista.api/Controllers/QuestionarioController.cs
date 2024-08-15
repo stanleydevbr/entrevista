@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DevBr.Entrevista.Api.Controllers
 {
-    public class QuestionarioController : Controller
+
+    [ApiController]
+    [Route("[controller]")]
+    public class QuestionarioController : ControllerBase
     {
         private readonly IQuestionarioAppService _service;
 
@@ -19,7 +22,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Adicionar(viewModel);
 
-            return View(result);
+            return Ok(result);
         }
 
         [HttpGet]
@@ -27,7 +30,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Consultar(Id);
 
-            return View(result);
+            return Ok(result);
         }
 
         [HttpPut]
@@ -35,7 +38,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Editar(viewModel);
 
-            return View(result);
+            return Ok(result);
         }
 
         [HttpDelete]
@@ -44,7 +47,7 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Excluir(Id);
 
-            return View(result);
+            return Ok(result);
         }
     }
 }

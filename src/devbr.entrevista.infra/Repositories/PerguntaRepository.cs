@@ -4,7 +4,7 @@ using DevBr.Entrevista.Infra.Contents;
 
 namespace DevBr.Entrevista.Infra.Repositories
 {
-    public class PerguntaRepository : BaseRepository<Pergunta>, IPerguntaRepository
+    public class PerguntaRepository : RepositoryCore<Pergunta>, IPerguntaRepository
     {
         public PerguntaRepository(EntrevistaDbContent context) : base(context)
         {
