@@ -8,7 +8,12 @@ namespace devbr.entrevista.domain.entities.relatorios
         public string Descricao { get; set; }
         public decimal Valor { get; set; }
 
-        public List<Resposta> Respostas { get; set; }
+        public virtual List<Resposta>? Respostas { get; set; } 
+
+        public NivelConhecimento()
+        {
+            Id = Guid.NewGuid();
+        }
         public override bool EhValido()
         {
             RuleFor(e => e.Descricao)

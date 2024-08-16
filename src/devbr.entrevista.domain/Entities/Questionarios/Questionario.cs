@@ -10,8 +10,12 @@ namespace devbr.entrevista.domain.entities.questionarios
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public bool Status { get; set; }
-        public ICollection<Pergunta> Perguntas { get; set; }
-        public ICollection<Relatorio> Relatorios { get; set; }
+        public ICollection<Pergunta>? Perguntas { get; set; }
+        public ICollection<Relatorio>? Relatorios { get; set; }
+        public Questionario()
+        {
+            Id = Guid.NewGuid();
+        }
 
         public override bool EhValido()
         {

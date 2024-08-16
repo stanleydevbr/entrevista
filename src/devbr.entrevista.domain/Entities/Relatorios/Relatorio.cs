@@ -11,9 +11,13 @@ namespace devbr.entrevista.domain.entities.relatorios
         public string PontosFracos { get; set; }
         public string Observacao { get; set; }
         public string Resultado { get; set; }
-        public Entrevista Entrevista { get; set; }
+        public virtual Entrevistar Entrevista { get; set; } 
         public Guid EntrevistaId { get; set; }
-        public ICollection<Questionario> Questionarios { get; set; }
+        public virtual ICollection<Questionario>? Questionarios { get; set; }
+        public Relatorio()
+        {
+            Id = Guid.NewGuid();
+        }
 
         public override bool EhValido()
         {

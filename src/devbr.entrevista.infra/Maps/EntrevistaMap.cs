@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DevBr.Entrevista.Infra.Maps
 {
-    internal class EntrevistaMap : IEntityTypeConfiguration<devbr.entrevista.domain.entities.Entrevista>
+    internal class EntrevistaMap : IEntityTypeConfiguration<devbr.entrevista.domain.entities.Entrevistar>
     {
-        public void Configure(EntityTypeBuilder<devbr.entrevista.domain.entities.Entrevista> builder)
+        public void Configure(EntityTypeBuilder<devbr.entrevista.domain.entities.Entrevistar> builder)
         {
             builder.ToTable("Entrevistas");
 
@@ -37,7 +37,7 @@ namespace DevBr.Entrevista.Infra.Maps
                     j => j.HasOne<Entrevistador>()
                           .WithMany()
                           .HasForeignKey("EntrevistadorId"),
-                    j => j.HasOne<devbr.entrevista.domain.entities.Entrevista>()
+                    j => j.HasOne<devbr.entrevista.domain.entities.Entrevistar>()
                           .WithMany()
                           .HasForeignKey("EntrevistaId")
                 );

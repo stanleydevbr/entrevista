@@ -18,6 +18,7 @@ namespace DevBr.Entrevista.Api
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddControllers();
+
             services.AddControllersWithViews(options =>
             {
                 options.EnableEndpointRouting = false;

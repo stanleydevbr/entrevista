@@ -6,7 +6,8 @@ namespace DevBr.Entrevista.Api.Controllers
 {
 
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class EntrevistadorController : ControllerBase
     {
             private readonly IEntrevistadorAppService _service;

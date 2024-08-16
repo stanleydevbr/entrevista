@@ -5,9 +5,13 @@ namespace devbr.entrevista.domain.entities
 {
     public class Candidato : Entity<Candidato>
     {
+        public Candidato()
+        {
+            Id = Guid.NewGuid();
+        }
         public string Nome { get; set; }
 
-        public List<Entrevista> Entrevistas { get; set; }
+        public virtual ICollection<Entrevistar>? Entrevistas { get; set; } 
 
         public override bool EhValido()
         {

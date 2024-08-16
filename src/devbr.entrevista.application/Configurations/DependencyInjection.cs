@@ -34,7 +34,7 @@ namespace DevBr.Entrevista.Application.Configurations
 
             
             services.AddTransient<IAppServiceCore<CandidatoViewModel>, AppServiceCore<CandidatoViewModel, Candidato>>();
-            services.AddTransient<IAppServiceCore<EntrevistaViewModel>, AppServiceCore<EntrevistaViewModel, devbr.entrevista.domain.entities.Entrevista>>();
+            services.AddTransient<IAppServiceCore<EntrevistaViewModel>, AppServiceCore<EntrevistaViewModel, devbr.entrevista.domain.entities.Entrevistar>>();
             services.AddTransient<IAppServiceCore<EntrevistadorViewModel>, AppServiceCore<EntrevistadorViewModel, Entrevistador>>();
             services.AddTransient<IAppServiceCore<GrupoViewModel>, AppServiceCore<GrupoViewModel, GrupoPergunta>>();
             services.AddTransient<IAppServiceCore<QuestionarioViewModel>, AppServiceCore<QuestionarioViewModel, Questionario>>();
@@ -53,7 +53,7 @@ namespace DevBr.Entrevista.Application.Configurations
             services.AddTransient<IRelatorioService, RelatorioService>();
 
             services.AddTransient<IServiceCore<Candidato>, ServiceCore<Candidato>>();
-            services.AddTransient<IServiceCore<devbr.entrevista.domain.entities.Entrevista>, ServiceCore<devbr.entrevista.domain.entities.Entrevista>>();
+            services.AddTransient<IServiceCore<Entrevistar>, ServiceCore<Entrevistar>>();
             services.AddTransient<IServiceCore<Entrevistador>, ServiceCore<Entrevistador>>();
             services.AddTransient<IServiceCore<GrupoPergunta>, ServiceCore<GrupoPergunta>>();
             services.AddTransient<IServiceCore<Questionario>, ServiceCore<Questionario>>();

@@ -10,10 +10,15 @@ namespace devbr.entrevista.domain.entities.relatorios
         public string RespostaEsperada { get; set; }
         public int CodigoGrupoPergunta { get; set; }
         public string DescricaoGrupoPergunta { get; set; }
-        public NivelConhecimento NivelConhecimento { get; set; }
+        public virtual NivelConhecimento? NivelConhecimento { get; set; } 
         public Guid NivelConhecimentoId { get; set; }
-        public Relatorio Relatorio { get; set; }
+        public virtual Relatorio? Relatorio { get; set; } 
         public Guid RelatorioId { get; set; }
+        public Resposta()
+        {
+            Id = Guid.NewGuid();
+
+        }
 
         public override bool EhValido()
         {

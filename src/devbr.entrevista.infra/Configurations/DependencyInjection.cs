@@ -30,7 +30,7 @@ namespace DevBr.Entrevista.Infra.Configurations
             services.AddScoped<IRelatorioRepository, RelatorioRepository>();
 
             services.AddScoped<IRepositoryCore<Candidato>, RepositoryCore<Candidato>>();
-            services.AddScoped<IRepositoryCore<devbr.entrevista.domain.entities.Entrevista>, RepositoryCore<devbr.entrevista.domain.entities.Entrevista>>();
+            services.AddScoped<IRepositoryCore<devbr.entrevista.domain.entities.Entrevistar>, RepositoryCore<devbr.entrevista.domain.entities.Entrevistar>>();
             services.AddScoped<IRepositoryCore<Entrevistador>, RepositoryCore<Entrevistador>>();
             services.AddScoped<IRepositoryCore<GrupoPergunta>, RepositoryCore<GrupoPergunta>>();
             services.AddScoped<IRepositoryCore<Pergunta>, RepositoryCore<Pergunta>>();

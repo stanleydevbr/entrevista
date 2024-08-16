@@ -4,15 +4,20 @@ using FluentValidation;
 
 namespace devbr.entrevista.domain.entities
 {
-    public class Entrevista : Entity<Entrevista>
+    public class Entrevistar : Entity<Entrevistar>
     {
+        public Entrevistar()
+        {
+            Id = Guid.NewGuid();
+        }
         public DateTime DataEntrevista { get; set; }
         public string NivelEsperado { get; set; }
         public Guid CandidatoId { get; set; }
-        public Candidato Candidato { get; set; }
-        public List<Entrevistador> Entrevistadores { get; set; }
-        public List<Relatorio> Relatorios { get; set; }
+        public virtual Candidato Candidato { get; set; } 
+        public virtual ICollection<Entrevistador>? Entrevistadores { get; set; } 
+        public virtual ICollection<Relatorio>? Relatorios { get; set; } 
         public Guid RelatorioId { get; set; }
+
 
         public override bool EhValido()
         {

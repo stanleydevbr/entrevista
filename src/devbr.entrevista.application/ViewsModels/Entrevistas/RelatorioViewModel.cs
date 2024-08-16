@@ -10,6 +10,11 @@ namespace DevBr.Entrevista.Application.ViewsModels.Entrevistas
         public string PontosFracos { get; set; }
         public string Observacao { get; set; }
         public string Resultado { get; set; }
-        public EntrevistaViewModel Entrevista { get; set; }
+        public EntrevistaViewModel? Entrevista { get; set; }
+
+        public RelatorioViewModel()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

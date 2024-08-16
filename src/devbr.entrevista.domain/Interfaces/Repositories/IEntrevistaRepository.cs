@@ -2,7 +2,7 @@
 
 namespace DevBr.Entrevista.Domain.Interfaces.Repositories
 {
-    public interface IEntrevistaRepository : IRepositoryCore<devbr.entrevista.domain.entities.Entrevista>
+    public interface IEntrevistaRepository : IRepositoryCore<devbr.entrevista.domain.entities.Entrevistar>
     {
     }
 }

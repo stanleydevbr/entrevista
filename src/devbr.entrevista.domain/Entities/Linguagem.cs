@@ -7,7 +7,12 @@ namespace devbr.entrevista.domain.entities
     {
         public string Descricao { get; set; }
 
-        public List<Entrevistador> Entrevistadores { get; set; }
+        public virtual List<Entrevistador>? Entrevistadores { get; set; } 
+
+        public Linguagem()
+        {
+            Id = Guid.NewGuid();
+        }
 
         public override bool EhValido()
         {

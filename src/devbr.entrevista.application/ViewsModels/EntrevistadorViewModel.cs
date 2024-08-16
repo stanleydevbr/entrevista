@@ -8,7 +8,11 @@ namespace DevBr.Entrevista.Application.ViewsModels
         public string Cliente { get; set; }
         public string Familia { get; set; }
         public string Nivel { get; set; }
-        public List<LinguagemViewModel> Linguagens { get; set; }
+        public List<LinguagemViewModel>? Linguagens { get; set; }
+        public EntrevistadorViewModel()
+        {
+            Id = Guid.NewGuid();
+        }
 
     }
 }

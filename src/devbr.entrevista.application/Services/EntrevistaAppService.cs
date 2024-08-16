@@ -6,9 +6,9 @@ using AutoMapper;
 
 namespace DevBr.Entrevista.Application.Services
 {
-    public class EntrevistaAppService : AppServiceCore<EntrevistaViewModel, devbr.entrevista.domain.entities.Entrevista>, IEntrevistaAppService
+    public class EntrevistaAppService : AppServiceCore<EntrevistaViewModel, devbr.entrevista.domain.entities.Entrevistar>, IEntrevistaAppService
     {
-        public EntrevistaAppService(IServiceCore<devbr.entrevista.domain.entities.Entrevista> service, IMapper mapper) : base(service, mapper)
+        public EntrevistaAppService(IServiceCore<devbr.entrevista.domain.entities.Entrevistar> service, IMapper mapper) : base(service, mapper)
         {
 
         }

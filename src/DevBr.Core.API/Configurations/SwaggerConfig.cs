@@ -18,7 +18,7 @@ namespace DevBr.Core.API.Configurations
         public static IServiceCollection AddDevBrSwaggerConfiguration(this IServiceCollection services)
         {
             var config = SwaggerSettings.GetInstance();
-            services.AddControllers();
+
             services.AddApiVersioning(x =>
             {
                 x.DefaultApiVersion = new ApiVersion(1, 0);
@@ -27,7 +27,7 @@ namespace DevBr.Core.API.Configurations
             });
             services.AddVersionedApiExplorer(x =>
             {
-                x.GroupNameFormat = "'v',VVV";
+                x.GroupNameFormat = "'v'.VVV";
                 x.SubstituteApiVersionInUrl = true;
             });
             services.AddSwaggerGen().ConfigureSwaggerGen(c =>

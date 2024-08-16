@@ -6,7 +6,12 @@ namespace devbr.entrevista.domain.entities.questionarios
     public class GrupoPergunta : Entity<GrupoPergunta>
     {
         public string Descricao { get; set; }
-        public ICollection<Pergunta> Perguntas { get; set; }
+        public List<Pergunta>? Perguntas { get; set; } 
+
+        public GrupoPergunta()
+        {
+            Id = Guid.NewGuid();
+        }
 
         public override bool EhValido()
         {
