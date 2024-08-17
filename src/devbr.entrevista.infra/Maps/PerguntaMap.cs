@@ -13,8 +13,7 @@ namespace DevBr.Entrevista.Infra.Maps
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Descricao)
-                   .IsRequired()
-                   .HasMaxLength(500);
+                   .ValueGeneratedOnAdd();
 
             builder.Property(p => p.Resposta)
                    .HasColumnType("varchar(max)");
@@ -43,6 +42,9 @@ namespace DevBr.Entrevista.Infra.Maps
                 .HasMaxLength(10);
 
             builder.Property(c => c.DataAlteracao);
+
+            builder.Ignore(x => x.ValidationResult);
+            builder.Ignore(x => x.CascadeMode);
         }
     }
 }

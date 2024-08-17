@@ -16,6 +16,8 @@ namespace DevBr.Entrevista.Infra.Contents
             modelBuilder.Ignore<ValidationResult>();
             modelBuilder.Ignore("CascadeMode");
 
+            modelBuilder.AddSequence();
+
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
                 e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");

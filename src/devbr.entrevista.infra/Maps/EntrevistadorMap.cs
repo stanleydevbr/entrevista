@@ -13,8 +13,7 @@ namespace DevBr.Entrevista.Infra.Maps
             builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Codigo)
-                .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaEntrevistador");
+                .ValueGeneratedOnAdd();
 
             builder.Property(e => e.Nome)
                 .IsRequired()
@@ -51,6 +50,9 @@ namespace DevBr.Entrevista.Infra.Maps
                          j => j.HasOne<Linguagem>().WithMany().HasForeignKey("LinguagemId"),
                          j => j.HasOne<Entrevistador>().WithMany().HasForeignKey("EntrevistadorId")
                      );
+
+            builder.Ignore(x => x.ValidationResult);
+            builder.Ignore(x => x.CascadeMode);
         }
     }
 }

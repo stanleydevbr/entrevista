@@ -17,8 +17,7 @@ namespace DevBr.Entrevista.Infra.Maps
                 .HasMaxLength(500); // Ajuste o tamanho conforme necessário
 
             builder.Property(l => l.Codigo)
-                .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaRespostas");
+                .ValueGeneratedOnAdd();
 
             builder.Property(r => r.RespostaCandidato)
                 .IsRequired()
@@ -50,6 +49,9 @@ namespace DevBr.Entrevista.Infra.Maps
                 .HasMaxLength(10);
 
             builder.Property(c => c.DataAlteracao);
+
+            builder.Ignore(x => x.ValidationResult);
+            builder.Ignore(x => x.CascadeMode);
 
         }
 }

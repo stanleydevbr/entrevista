@@ -13,8 +13,7 @@ namespace DevBr.Entrevista.Infra.Maps
             builder.HasKey(q => q.Id);
 
             builder.Property(q => q.Codigo)
-                .IsRequired()
-                .HasComputedColumnSql("NEXT VALUE FOR SequenciaQuestionario");
+                .ValueGeneratedOnAdd();
 
             builder.Property(q => q.Nome)
                 .IsRequired()
@@ -43,6 +42,9 @@ namespace DevBr.Entrevista.Infra.Maps
             builder.HasMany(q => q.Perguntas)
                    .WithMany(p => p.Questionarios)
                    .UsingEntity(j => j.ToTable("PerguntaQuestionario"));
+
+            builder.Ignore(x => x.ValidationResult);
+            builder.Ignore(x => x.CascadeMode);
 
         }
     }

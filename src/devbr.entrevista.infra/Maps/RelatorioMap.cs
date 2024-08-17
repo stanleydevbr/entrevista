@@ -13,8 +13,7 @@ namespace DevBr.Entrevista.Infra.Maps
             builder.HasKey(r => r.Id);
 
             builder.Property(r => r.Codigo)
-                   .IsRequired()
-                   .HasComputedColumnSql("NEXT VALUE FOR SequenciaRelatorio");
+                   .ValueGeneratedOnAdd();
 
             builder.Property(r => r.Descricao)
                    .IsRequired()
@@ -52,6 +51,9 @@ namespace DevBr.Entrevista.Infra.Maps
                 .HasMaxLength(10);
 
             builder.Property(c => c.DataAlteracao);
+
+            builder.Ignore(x => x.ValidationResult);
+            builder.Ignore(x => x.CascadeMode);
 
         }
     }
