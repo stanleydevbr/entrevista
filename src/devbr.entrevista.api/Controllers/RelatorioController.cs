@@ -20,7 +20,7 @@ namespace DevBr.Entrevista.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(RelatorioViewModel viewModel)
+        public IActionResult Create([FromBody] RelatorioViewModel viewModel)
         {
             var result = _service.Adicionar(viewModel);
 
@@ -28,7 +28,7 @@ namespace DevBr.Entrevista.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Consultar(Guid Id)
+        public IActionResult Consultar([FromQuery] Guid Id)
         {
             var result = _service.Consultar(Id);
 
@@ -36,7 +36,7 @@ namespace DevBr.Entrevista.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult Atualizar(RelatorioViewModel viewModel)
+        public IActionResult Atualizar([FromBody] RelatorioViewModel viewModel)
         {
             var result = _service.Editar(viewModel);
 
@@ -45,7 +45,7 @@ namespace DevBr.Entrevista.Api.Controllers
 
         [HttpDelete]
 
-        public IActionResult Deletar(Guid Id)
+        public IActionResult Deletar([FromQuery] Guid Id)
         {
             var result = _service.Excluir(Id);
 

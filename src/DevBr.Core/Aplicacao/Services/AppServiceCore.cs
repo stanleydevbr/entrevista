@@ -24,6 +24,7 @@ namespace DevBr.Core.Aplicacao.Services
         public virtual TViewModel Adicionar(TViewModel viewModel)
         {
             var entity = _mapper.Map<TEntity>(viewModel);
+            //entity.EhValido
             return TrateRetorno(this._service.Adicionar(entity));
         }
 

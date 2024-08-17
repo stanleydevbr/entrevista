@@ -18,15 +18,16 @@ namespace DevBr.Entrevista.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CandidatoViewModel viewModel)
+        public IActionResult Create([FromBody] CandidatoViewModel viewModel)
         {
+//            return ModelState.IsValid ? TrateResultado(await _service.Adicionar(viewModel)) : BadRequest(ModelState);
             var result = _service.Adicionar(viewModel);
 
             return Ok(result);
         }
 
         [HttpGet]
-        public IActionResult Consultar(Guid Id)
+        public IActionResult Consultar([FromQuery] Guid Id)
         {
             var result = _service.Consultar(Id);
 
@@ -34,7 +35,7 @@ namespace DevBr.Entrevista.Api.Controllers
         }
 
         [HttpPut]
-        public IActionResult Atualizar(CandidatoViewModel viewModel)
+        public IActionResult Atualizar([FromBody] CandidatoViewModel viewModel)
         {
             var result = _service.Editar(viewModel);
 
@@ -43,7 +44,7 @@ namespace DevBr.Entrevista.Api.Controllers
 
         [HttpDelete]
 
-        public IActionResult Deletar(Guid Id)
+        public IActionResult Deletar([FromQuery] Guid Id)
         {
             var result = _service.Excluir(Id);
 
