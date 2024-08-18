@@ -9,7 +9,7 @@ namespace DevBr.Entrevista.Application.Services
 {
     public class EntrevistadorAppService : AppServiceCore<EntrevistadorViewModel, Entrevistador>, IEntrevistadorAppService
     {
-        public EntrevistadorAppService(IServiceCore<Entrevistador> service, IMapper mapper) : base(service, mapper)
+        public EntrevistadorAppService(IServiceCore<Entrevistador> service, IMapper mapper, NotificationContext notification) : base(service, mapper, notification)
         {
 
         }

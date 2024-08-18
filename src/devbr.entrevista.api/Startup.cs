@@ -3,6 +3,9 @@ using DevBr.Core.API.Configurations;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using DevBr.Core.API.Errors;
 using DevBr.Core.API.Extensions;
+using DevBr.Core.Dominio.Entidades;
+using DevBr.Core.Dominio.Notificacoes;
+using devbr.entrevista.domain.entities;
 
 namespace DevBr.Entrevista.Api
 {
@@ -17,13 +20,13 @@ namespace DevBr.Entrevista.Api
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddControllers();
+            services.AddNotificationFilter();
+     
 
             services.AddControllersWithViews(options =>
             {
                 options.EnableEndpointRouting = false;
             });
-            services.AddCustomFilterException();
 
             services.AddDevBrSwaggerConfiguration();
 
@@ -31,6 +34,9 @@ namespace DevBr.Entrevista.Api
             services.AddServiceApplication();
             services.AddServiceDomain();
             services.AddRespositoryInfrastructure(Configuration);
+            services.AddScoped<NotificationContext>();
+            
+            //services.AddMiddlewareFilter();
 
 
         }
@@ -47,22 +53,16 @@ namespace DevBr.Entrevista.Api
             }
             app.UseRouting();
 
+            app.ConfigureCustomExceptionMiddleware();
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                // Outros endpoints, se necessário
             });
 
-            //app.UseMvc()
-            //    .UseApiVersioning()
-            //    .UseMvcWithDefaultRoute();
-
             app.UseDevBrSwaggerConfiguration(environment, provider, "entrevista");
-            //app.ConfigureExceptionHandler();
 
-
-            //app.UseSwaggerConfiguration();
-            //app.UseApiConfiguration(environment);
         }
     }
 }

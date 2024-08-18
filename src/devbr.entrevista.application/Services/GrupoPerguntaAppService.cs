@@ -9,7 +9,7 @@ namespace DevBr.Entrevista.Application.Services
 {
     public class GrupoPerguntaAppService : AppServiceCore<GrupoViewModel, GrupoPergunta>, IGrupoPerguntaAppService
     {
-        public GrupoPerguntaAppService(IServiceCore<GrupoPergunta> service, IMapper mapper) : base(service, mapper)
+        public GrupoPerguntaAppService(IServiceCore<GrupoPergunta> service, IMapper mapper, NotificationContext notification) : base(service, mapper, notification)
         {
 
         }

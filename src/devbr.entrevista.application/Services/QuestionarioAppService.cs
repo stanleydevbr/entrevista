@@ -9,7 +9,7 @@ namespace DevBr.Entrevista.Application.Services
 {
     public class QuestionarioAppService : AppServiceCore<QuestionarioViewModel, Questionario>, IQuestionarioAppService
     {
-        public QuestionarioAppService(IServiceCore<Questionario> service, IMapper mapper) : base(service, mapper)
+        public QuestionarioAppService(IServiceCore<Questionario> service, IMapper mapper, NotificationContext notification) : base(service, mapper, notification)
         {
 
         }

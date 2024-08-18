@@ -2,6 +2,7 @@
 using DevBr.Entrevista.Application.ViewsModels.Entrevistas;
 using DevBr.Entrevista.Application.ViewsModels.Questionarios;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace DevBr.Entrevista.Api.Controllers
 {
@@ -23,8 +24,8 @@ namespace DevBr.Entrevista.Api.Controllers
         public IActionResult Create([FromBody] RelatorioViewModel viewModel)
         {
             var result = _service.Adicionar(viewModel);
-
-            return Ok(result);
+            var response = new ResponseResultCore(HttpStatusCode.Created, result);
+            return new ObjectResult(response) { StatusCode = (int)HttpStatusCode.Created };
         }
 
         [HttpGet]
@@ -32,7 +33,11 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Consultar(Id);
 
-            return Ok(result);
+            if (result == null)
+                return NoContent();
+
+            var response = new ResponseResultCore(HttpStatusCode.OK, result);
+            return Ok(response);
         }
 
         [HttpPut]
@@ -40,7 +45,11 @@ namespace DevBr.Entrevista.Api.Controllers
         {
             var result = _service.Editar(viewModel);
 
-            return Ok(result);
+            if (result == null)
+                return NotFound();
+
+            var response = new ResponseResultCore(HttpStatusCode.OK, result);
+            return Ok(response);
         }
 
         [HttpDelete]
@@ -48,8 +57,12 @@ namespace DevBr.Entrevista.Api.Controllers
         public IActionResult Deletar([FromQuery] Guid Id)
         {
             var result = _service.Excluir(Id);
+            if (!result)
+                return NotFound();
 
-            return Ok(result);
+            var response = new ResponseResultCore(HttpStatusCode.OK, result);
+
+            return Ok(response);
         }
     }
 }

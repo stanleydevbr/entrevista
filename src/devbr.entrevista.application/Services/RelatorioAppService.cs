@@ -9,7 +9,7 @@ namespace DevBr.Entrevista.Application.Services
 {
     public class RelatorioAppService : AppServiceCore<RelatorioViewModel, Relatorio>, IRelatorioAppService
     {
-        public RelatorioAppService(IServiceCore<Relatorio> service, IMapper mapper) : base(service, mapper)
+        public RelatorioAppService(IServiceCore<Relatorio> service, IMapper mapper, NotificationContext notification) : base(service, mapper, notification)
         {
 
         }

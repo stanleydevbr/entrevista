@@ -9,8 +9,9 @@ namespace DevBr.Entrevista.Application.Services
 {
     public class CandidatoAppService : AppServiceCore<CandidatoViewModel, Candidato>, ICandidatoAppService
     {
-        public CandidatoAppService(IServiceCore<Candidato> service, IMapper mapper) : base(service, mapper)
+        public CandidatoAppService(IServiceCore<Candidato> service, IMapper mapper, NotificationContext notification) : base(service, mapper, notification)
         {
+    
         }
 
         public void Dispose()

@@ -27,14 +27,14 @@ namespace DevBr.Entrevista.Application.Configurations
         {
             services.AddTransient<ICandidatoAppService, CandidatoAppService>();
             services.AddTransient<IEntrevistaAppService, EntrevistaAppService>();
-            services.AddTransient<IEntrevistadorService, EntrevistadorService>();
-            services.AddTransient<IGrupoPerguntaService, GrupoPerguntaService>();
-            services.AddTransient<IQuestionarioService,  QuestionarioService>();
-            services.AddTransient<IRelatorioService, RelatorioService>();
+            services.AddTransient<IEntrevistadorAppService, EntrevistadorAppService>();
+            services.AddTransient<IGrupoPerguntaAppService, GrupoPerguntaAppService>();
+            services.AddTransient<IQuestionarioAppService,  QuestionarioAppService>();
+            services.AddTransient<IRelatorioAppService, RelatorioAppService>();
 
             
             services.AddTransient<IAppServiceCore<CandidatoViewModel>, AppServiceCore<CandidatoViewModel, Candidato>>();
-            services.AddTransient<IAppServiceCore<EntrevistaViewModel>, AppServiceCore<EntrevistaViewModel, devbr.entrevista.domain.entities.Entrevistar>>();
+            services.AddTransient<IAppServiceCore<EntrevistaViewModel>, AppServiceCore<EntrevistaViewModel, Entrevistar>>();
             services.AddTransient<IAppServiceCore<EntrevistadorViewModel>, AppServiceCore<EntrevistadorViewModel, Entrevistador>>();
             services.AddTransient<IAppServiceCore<GrupoViewModel>, AppServiceCore<GrupoViewModel, GrupoPergunta>>();
             services.AddTransient<IAppServiceCore<QuestionarioViewModel>, AppServiceCore<QuestionarioViewModel, Questionario>>();

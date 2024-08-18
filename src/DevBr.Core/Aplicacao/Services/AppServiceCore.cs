@@ -2,7 +2,6 @@
 using DevBr.Core.Aplicacao.Interfaces;
 using DevBr.Core.Dominio.Entidades;
 using DevBr.Core.Dominio.Interfaces;
-using DevBr.Core.Dominio.Notificacoes;
 using DevBr.Core.Dominio.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,32 +11,38 @@ namespace DevBr.Core.Aplicacao.Services
 {
     public class AppServiceCore<TViewModel, TEntity> : IAppServiceCore<TViewModel>
              where TViewModel : ViewModelCore
+             where TEntity : Entity<TEntity>
     {
         public readonly IServiceCore<TEntity> _service;
         public readonly IMapper _mapper;
-        public AppServiceCore(IServiceCore<TEntity> service, IMapper mapper)
+        public readonly NotificationContext _notification;
+        public AppServiceCore(IServiceCore<TEntity> service, IMapper mapper, NotificationContext notification)
         {
             this._service = service;
             this._mapper = mapper;
+            this._notification = notification;
         }
 
         public virtual TViewModel Adicionar(TViewModel viewModel)
         {
             var entity = _mapper.Map<TEntity>(viewModel);
-            //entity.EhValido
-            return TrateRetorno(this._service.Adicionar(entity));
+            if (EntidadeValida(entity))
+                return TrateRetorno(this._service.Adicionar(entity));
+
+            return TrateRetorno(entity);
         }
 
         public virtual async Task<TViewModel> AdicionarAsync(TViewModel viewModel)
         {
             var entity = _mapper.Map<TEntity>(viewModel);
+
             return TrateRetorno(await this._service.AdicionarAsync(entity));
         }
 
         public virtual TViewModel Consultar(Guid id)
         {
             var result = this._service.Consultar(id);
-            return _mapper.Map<TViewModel>(result.Resultado);
+            return _mapper.Map<TViewModel>(result);
         }
 
         public async Task<TViewModel> ConsultarAsync(Guid id)
@@ -49,59 +54,65 @@ namespace DevBr.Core.Aplicacao.Services
         public virtual TViewModel Editar(TViewModel viewModel)
         {
             var entity = _mapper.Map<TEntity>(viewModel);
-            return TrateRetorno(this._service.Editar(entity));
+            if (EntidadeValida(entity))
+                return TrateRetorno(this._service.Editar(entity));
+
+            return TrateRetorno(entity);
         }
 
         public virtual async Task<TViewModel> EditarAsync(TViewModel viewModel)
         {
             var entity = _mapper.Map<TEntity>(viewModel);
-            return TrateRetorno(await this._service.EditarAsync(entity));
+            if (EntidadeValida(entity))
+                return TrateRetorno(await this._service.EditarAsync(entity));
+
+            return TrateRetorno(entity);
         }
 
         public virtual bool Excluir(Guid id)
         {
             var result = this._service.Excluir(id);
-            return result.Resultado;
+            return result;
         }
 
         public virtual async Task<bool> ExcluirAsync(Guid id)
         {
             var result = await this._service.ExcluirAsync(id);
-            return result.Resultado;
+            return result;
         }
 
         public virtual List<TViewModel> Listar()
         {
             var result = _service.Listar();
-            return _mapper.Map<List<TViewModel>>(result.Resultado);
+            return _mapper.Map<List<TViewModel>>(result);
         }
 
         public virtual async Task<List<TViewModel>> ListarAsync()
         {
             var result = await _service.ListarAsync();
-            return _mapper.Map<List<TViewModel>>(result.Resultado);
+            return _mapper.Map<List<TViewModel>>(result);
         }
 
         public virtual async Task<ResultList<TViewModel>> ListarAsync(FilterList filtro)
         {
             var filtroMapped = _mapper.Map<FilterList>(filtro);
             var result = await this._service.ListarAsync(filtroMapped);
-            return _mapper.Map<ResultList<TViewModel>>(result.Resultado);
+            return _mapper.Map<ResultList<TViewModel>>(result);
         }
 
-        protected TViewModel TrateRetorno(Notificacao<TEntity> resultadoNegocio)
+        protected virtual TViewModel TrateRetorno(TEntity entity)
         {
-            var resultado = _mapper.Map<TViewModel>(resultadoNegocio.Resultado);
-            var inconsistencias = new List<string>();
-            foreach (var inconsistencia in resultadoNegocio.Mensagens.Values)
-            {
-                foreach (var mensagem in inconsistencia)
-                    inconsistencias.Add(mensagem);
-            }
-
-            resultado.Inconsistencias = inconsistencias;
-
+            var resultado = _mapper.Map<TViewModel>(entity);
             return resultado;
+        }
+        protected virtual bool EntidadeValida(TEntity entity)
+        {
+            if (!entity.EhValido())
+            {
+                _notification.AddNotifications(entity.ValidationResult);
+                return false;
+            }
+            return true;
         }
     }
 }

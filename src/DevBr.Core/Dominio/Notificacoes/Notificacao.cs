@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FluentValidation.Results;
+using System.Collections.Generic;
 
 namespace DevBr.Core.Dominio.Notificacoes
 {
@@ -87,6 +88,15 @@ namespace DevBr.Core.Dominio.Notificacoes
 
             foreach (var mensagem in validacao.Mensagens)
                 DicionarioMensagens[mensagem.Key] = mensagem.Value;
+
+            return this;
+        }
+
+
+        public Notificacao<T> AddErrosValidacao(ValidationResult validationResult)
+        {
+            foreach (var erro in validationResult.Errors)
+                AdicioneErro(erro.ErrorMessage);
 
             return this;
         }

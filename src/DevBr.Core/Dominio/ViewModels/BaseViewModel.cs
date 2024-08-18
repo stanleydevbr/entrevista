@@ -5,7 +5,7 @@ namespace DevBr.Core.Dominio.ViewModels
 {
     public abstract class BaseViewModel
     {
-        public IEnumerable<string> Inconsistencias { get; set; }
+        //public IEnumerable<string> Inconsistencias { get; set; }
 
         public virtual void AtualizeContexto(object context)
         {
