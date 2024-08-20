@@ -8,6 +8,7 @@ namespace DevBr.Entrevista.Infra.Repositories
     {
         public CandidatoRepository(EntrevistaDbContent context) : base(context)
         {
+
         }
     }
 }
