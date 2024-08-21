@@ -10,7 +10,7 @@ namespace DevBr.Entrevista.Domain.Services
         public CandidatoService(IRepositoryCore<Candidato> repository) : base(repository)
         {
         }
-       
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);
