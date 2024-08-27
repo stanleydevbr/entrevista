@@ -23,6 +23,8 @@ namespace devbr.entrevista.domain.entities
                 .WithMessage("O nome do entrevistador é obrigatório.");
 
             RuleFor(e => e.Cliente)
+                .NotEmpty()
+                .WithMessage("O cliente é obrigatório.")
                 .MaximumLength(80)
                 .WithMessage("O nome do entrevistador deve ter no máximo 80 caracteres.");
 
