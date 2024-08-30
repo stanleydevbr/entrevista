@@ -28,14 +28,16 @@ namespace DevBr.Entrevista.Infra.Configurations
             services.AddScoped<IPerguntaRepository, PerguntaRepository>();
             services.AddScoped<IQuestionarioRepository, QuestionarioRepository>();
             services.AddScoped<IRelatorioRepository, RelatorioRepository>();
+            services.AddScoped<ILinguagemRepository, LinguagemRepository>();
 
             services.AddScoped<IRepositoryCore<Candidato>, RepositoryCore<Candidato>>();
-            services.AddScoped<IRepositoryCore<devbr.entrevista.domain.entities.Entrevistar>, RepositoryCore<devbr.entrevista.domain.entities.Entrevistar>>();
+            services.AddScoped<IRepositoryCore<Entrevistar>, RepositoryCore<Entrevistar>>();
             services.AddScoped<IRepositoryCore<Entrevistador>, RepositoryCore<Entrevistador>>();
             services.AddScoped<IRepositoryCore<GrupoPergunta>, RepositoryCore<GrupoPergunta>>();
             services.AddScoped<IRepositoryCore<Pergunta>, RepositoryCore<Pergunta>>();
             services.AddScoped<IRepositoryCore<Questionario>, RepositoryCore<Questionario>>();
             services.AddScoped<IRepositoryCore<Relatorio>, RepositoryCore<Relatorio>>();
+            services.AddScoped<IRepositoryCore<Linguagem>, RepositoryCore<Linguagem>>();
 
             return services;
         }

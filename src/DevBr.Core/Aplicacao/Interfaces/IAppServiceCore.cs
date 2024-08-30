@@ -15,7 +15,7 @@ namespace DevBr.Core.Aplicacao.Interfaces
         Task<bool> ExcluirAsync(Guid id);
         TViewModel Consultar(Guid id);
         Task<TViewModel> ConsultarAsync(Guid id);
-        List<TViewModel> Listar();
+        IEnumerable<TViewModel> Listar();
         Task<List<TViewModel>> ListarAsync();
         Task<ResultList<TViewModel>> ListarAsync(FilterList filtro);
     }

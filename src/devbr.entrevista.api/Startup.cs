@@ -21,6 +21,7 @@ namespace DevBr.Entrevista.Api
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddNotificationFilter();
+            services.AddHealthChecks();
      
 
             services.AddControllersWithViews(options =>
@@ -35,8 +36,16 @@ namespace DevBr.Entrevista.Api
             services.AddServiceDomain();
             services.AddRespositoryInfrastructure(Configuration);
             services.AddScoped<NotificationContext>();
-            
+
             //services.AddMiddlewareFilter();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder
+                        .WithOrigins("http://localhost:4200") // Adicione a origem permitida aqui
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
 
 
         }
@@ -52,15 +61,17 @@ namespace DevBr.Entrevista.Api
                 app.UseHsts();
             }
             app.UseRouting();
+            app.MapHealthChecks("/health");
+                //.DisableHttpMetrics();
 
             app.ConfigureCustomExceptionMiddleware();
 
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
             app.UseDevBrSwaggerConfiguration(environment, provider, "entrevista");
 
         }
