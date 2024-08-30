@@ -19,8 +19,8 @@ public class NotificationFilter : IAsyncResultFilter
         {
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             context.HttpContext.Response.ContentType = "application/json";
-
-            var response = new ResponseResultCore(HttpStatusCode.BadRequest, null)
+            
+            var response = new ResponseResultCore<object>(HttpStatusCode.BadRequest, null)
             {
                 Errors = _notificationContext.Notifications.ToList()
             };
@@ -33,14 +33,14 @@ public class NotificationFilter : IAsyncResultFilter
     }
 }
 
-public class ResponseResultCore
+public class ResponseResultCore<T>
 {
-    public ResponseResultCore(HttpStatusCode statusCode, object? data = default)
+    public ResponseResultCore(HttpStatusCode statusCode, T? data = default)
     {
         StatusCode = statusCode;
         Data = data;
     }
     public HttpStatusCode StatusCode { get; set; }
-    public object? Data { get; set; }
+    public T? Data { get; set; }
     public ICollection<Notification>? Errors { get; set; }
 }

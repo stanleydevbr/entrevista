@@ -31,14 +31,16 @@ namespace DevBr.Entrevista.Application.Configurations
             services.AddTransient<IGrupoPerguntaAppService, GrupoPerguntaAppService>();
             services.AddTransient<IQuestionarioAppService,  QuestionarioAppService>();
             services.AddTransient<IRelatorioAppService, RelatorioAppService>();
+            services.AddTransient<ILinguagemAppService, LinguagemAppService>();
 
-            
+
             services.AddTransient<IAppServiceCore<CandidatoViewModel>, AppServiceCore<CandidatoViewModel, Candidato>>();
             services.AddTransient<IAppServiceCore<EntrevistaViewModel>, AppServiceCore<EntrevistaViewModel, Entrevistar>>();
             services.AddTransient<IAppServiceCore<EntrevistadorViewModel>, AppServiceCore<EntrevistadorViewModel, Entrevistador>>();
             services.AddTransient<IAppServiceCore<GrupoViewModel>, AppServiceCore<GrupoViewModel, GrupoPergunta>>();
             services.AddTransient<IAppServiceCore<QuestionarioViewModel>, AppServiceCore<QuestionarioViewModel, Questionario>>();
             services.AddTransient<IAppServiceCore<RelatorioViewModel>, AppServiceCore<RelatorioViewModel, Relatorio>>();
+            services.AddTransient<IAppServiceCore<LinguagemViewModel>, AppServiceCore<LinguagemViewModel, Linguagem>>();
 
             return services;
         }
@@ -51,6 +53,7 @@ namespace DevBr.Entrevista.Application.Configurations
             services.AddTransient<IGrupoPerguntaService, GrupoPerguntaService>();
             services.AddTransient<IQuestionarioService, QuestionarioService>();
             services.AddTransient<IRelatorioService, RelatorioService>();
+            services.AddTransient<ILinguagemService, LinguagemService>();
 
             services.AddTransient<IServiceCore<Candidato>, ServiceCore<Candidato>>();
             services.AddTransient<IServiceCore<Entrevistar>, ServiceCore<Entrevistar>>();
@@ -58,7 +61,7 @@ namespace DevBr.Entrevista.Application.Configurations
             services.AddTransient<IServiceCore<GrupoPergunta>, ServiceCore<GrupoPergunta>>();
             services.AddTransient<IServiceCore<Questionario>, ServiceCore<Questionario>>();
             services.AddTransient<IServiceCore<Relatorio>, ServiceCore<Relatorio>>();
-
+            services.AddTransient<IServiceCore<Linguagem>, ServiceCore<Linguagem>>();
             return services;
         }
 

@@ -5,6 +5,7 @@ using DevBr.Core.Dominio.Interfaces;
 using DevBr.Core.Dominio.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DevBr.Core.Aplicacao.Services
@@ -81,10 +82,10 @@ namespace DevBr.Core.Aplicacao.Services
             return result;
         }
 
-        public virtual List<TViewModel> Listar()
+        public virtual IEnumerable<TViewModel> Listar()
         {
             var result = _service.Listar();
-            return _mapper.Map<List<TViewModel>>(result);
+            return _mapper.Map<IEnumerable<TViewModel>>(result).ToList();
         }
 
         public virtual async Task<List<TViewModel>> ListarAsync()

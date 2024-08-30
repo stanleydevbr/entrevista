@@ -23,7 +23,7 @@ namespace DevBr.Entrevista.Api.Controllers
         public IActionResult Create([FromBody] GrupoViewModel viewModel)
         {
             var result = _service.Adicionar(viewModel);
-            var response = new ResponseResultCore(HttpStatusCode.Created, result);
+            var response = new ResponseResultCore<GrupoViewModel>(HttpStatusCode.Created, result);
             return new ObjectResult(response) { StatusCode = (int)HttpStatusCode.Created };
         }
 
@@ -34,7 +34,7 @@ namespace DevBr.Entrevista.Api.Controllers
             if (result == null)
                 return NoContent();
 
-            var response = new ResponseResultCore(HttpStatusCode.OK, result);
+            var response = new ResponseResultCore<GrupoViewModel>(HttpStatusCode.OK, result);
             return Ok(response);
         }
 
@@ -45,7 +45,7 @@ namespace DevBr.Entrevista.Api.Controllers
             if (result == null)
                 return NotFound();
 
-            var response = new ResponseResultCore(HttpStatusCode.OK, result);
+            var response = new ResponseResultCore<GrupoViewModel>(HttpStatusCode.OK, result);
             return Ok(response);
         }
 
@@ -57,7 +57,7 @@ namespace DevBr.Entrevista.Api.Controllers
             if (!result)
                 return NotFound();
 
-            var response = new ResponseResultCore(HttpStatusCode.OK, result);
+            var response = new ResponseResultCore<bool>(HttpStatusCode.OK, result);
 
             return Ok(response);
         }

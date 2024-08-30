@@ -26,6 +26,12 @@ namespace DevBr.Core.API.Extensions
             }).AddJsonOptions(opt => {
                 opt.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 opt.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                opt.JsonSerializerOptions.WriteIndented = true;
+            }).AddNewtonsoftJson(opt =>
+            {
+                opt.UseCamelCasing(true);
+                opt.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
             return services;
         }
