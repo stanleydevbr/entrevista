@@ -4,6 +4,7 @@ using DevBr.Entrevista.Application.ViewsModels.Entrevistas;
 using DevBr.Core.Dominio.Interfaces;
 using AutoMapper;
 using devbr.entrevista.domain.entities.relatorios;
+using DevBr.Entrevista.Application.ViewsModels.Questionarios;
 
 namespace DevBr.Entrevista.Application.Services
 {
@@ -14,6 +15,12 @@ namespace DevBr.Entrevista.Application.Services
 
         }
 
+        
+        public override IEnumerable<RelatorioViewModel> Listar()
+        {
+            var result = _service.Listar().ToList();
+            return _mapper.Map<IEnumerable<RelatorioViewModel>>(result);
+        }
         public void Dispose()
         {
             GC.SuppressFinalize(this);

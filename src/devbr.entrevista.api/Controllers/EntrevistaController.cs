@@ -1,4 +1,5 @@
 ﻿using DevBr.Entrevista.Application.Interfaces.Applications;
+using DevBr.Entrevista.Application.ViewsModels;
 using DevBr.Entrevista.Application.ViewsModels.Entrevistas;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -24,6 +25,17 @@ namespace DevBr.Entrevista.Api.Controllers
             var result = _service.Adicionar(viewModel);
             var response = new ResponseResultCore<EntrevistaViewModel>(HttpStatusCode.Created, result);
             return new ObjectResult(response) { StatusCode = (int)HttpStatusCode.Created };
+        }
+
+        [HttpGet("Listar")]
+        public IActionResult Listar()
+        {
+            var result = _service.Listar().ToList();
+            if (result == null)
+                return NoContent();
+
+            var response = new ResponseResultCore<List<EntrevistaViewModel>>(HttpStatusCode.OK, result);
+            return Ok(response);
         }
 
         [HttpGet]

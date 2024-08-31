@@ -28,6 +28,17 @@ namespace DevBr.Entrevista.Api.Controllers
 
             }
 
+            [HttpGet("Listar")]
+            public IActionResult Listar()
+            {
+                var result = _service.Listar().ToList();
+                if (result == null)
+                    return NoContent();
+
+                var response = new ResponseResultCore<List<EntrevistadorViewModel>>(HttpStatusCode.OK, result);
+                return Ok(response);
+            }
+
             [HttpGet]
             public IActionResult Consultar([FromQuery] Guid Id)
             {

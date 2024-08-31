@@ -14,6 +14,12 @@ namespace DevBr.Entrevista.Application.Services
 
         }
 
+        public override IEnumerable<QuestionarioViewModel> Listar()
+        {
+            var result = _service.Listar().ToList();
+            return _mapper.Map<IEnumerable<QuestionarioViewModel>>(result);
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);

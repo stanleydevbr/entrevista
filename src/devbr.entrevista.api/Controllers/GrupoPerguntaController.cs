@@ -27,6 +27,17 @@ namespace DevBr.Entrevista.Api.Controllers
             return new ObjectResult(response) { StatusCode = (int)HttpStatusCode.Created };
         }
 
+        [HttpGet("Listar")]
+        public IActionResult Listar()
+        {
+            var result = _service.Listar().ToList();
+            if (result == null)
+                return NoContent();
+
+            var response = new ResponseResultCore<List<GrupoViewModel>>(HttpStatusCode.OK, result);
+            return Ok(response);
+        }
+
         [HttpGet]
         public IActionResult Consultar([FromQuery] Guid Id)
         {
